@@ -1,0 +1,37 @@
+<?php
+namespace App\Http\Composers;
+
+use App\Category;
+use Illuminate\Support\Facades\Route;
+use Illuminate\View\View;
+
+
+class BookSidebarComposer
+{
+    protected $listRoutes = ['books.index'];
+
+    public function compose(View $view)
+    {
+
+        $view->categoryItems = $this->getCategoryItems();
+        $view->filters = trans('menu.filters');
+
+    }
+    protected function getCategoryItems()
+    {
+        $routeName = Route::getCurrentRoute()->getName();
+
+        if(!in_array($routeName,$this->listRoutes)){
+            $routeName = 'books.index';
+        }
+        return Category::query()
+            ->orderBy('name')
+            ->get()
+            ->map(function($category) use ($routeName){
+               return [
+                   'title' => $category->name,
+                   'full_url' => route($routeName,$category)
+               ];
+            })->toArray();
+    }
+}

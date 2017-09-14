@@ -21,6 +21,14 @@
                                     en <a href="{{$book->category->url}}">{{$book->category->name}}</a>
                                 </p>
                                 <h3>{{$book->abstract}}</h3>
+                                <hr>
+
+                                @if(auth()->check())
+                                    <h4>Documento:</h4>
+                                    <div>
+                                        <a class="btn btn-primary view-pdf" href="{{asset('storage/'.$book->pdfbook)}}" target="_blank">{{$book->title.'.pdf'}}</a>
+                                    </div>
+                                @endif
                             </div>
                             @include('books.sidebar')
                         </div>

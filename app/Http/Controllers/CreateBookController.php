@@ -20,14 +20,18 @@ class CreateBookController extends Controller
 
     public function store(Request $request)
     {
-
         $request->validate([
-           'title' => 'required',
-           'abstract' => 'required',
-           'category_id' => 'required|exists:categories,id',
+            'title' => 'required',
+            'abstract' => 'required',
+            'pdfbook' => 'required|file|mimes:pdf|max:10000',
+            'category_id' => 'required|exists:categories,id',
         ]);
 
        $book = auth()->user()->createBook($request->all());
+       if($request->hasFile('pdfbook')){
+           $book->pdfbook = $request->file('pdfbook')->store('pdfbooks','public');
+           $book->save();
+       }
        return redirect($book->url);
     }
 }

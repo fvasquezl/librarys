@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
-                    <div class="panel-heading"><h3>Detalle de libro</h3></div>
+                    <div class="panel-heading"><h3>Detalle de libro <i class="fa fa-book " aria-hidden="true"></i></h3></div>
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-md-10">
@@ -20,13 +20,14 @@
                                     {{$book->created_at->diffForHumans()}}
                                     en <a href="{{$book->category->url}}">{{$book->category->name}}</a>
                                 </p>
-                                <h3>{{$book->abstract}}</h3>
+                                <p>{{$book->abstract}}</p>
                                 <hr>
 
                                 @if(auth()->check())
                                     <h4>Documento:</h4>
                                     <div>
-                                        <a class="btn btn-primary view-pdf" href="{{asset('storage/'.$book->pdfbook)}}" target="_blank">{{$book->title.'.pdf'}}</a>
+                                        <i class="fa fa-file-pdf-o fa-3x" aria-hidden="true"></i>
+                                        <a  href="{{asset('storage/'.$book->pdfbook)}}" target="_blank"> {{$book->title.'.pdf'}} </a>
                                     </div>
                                 @endif
                             </div>

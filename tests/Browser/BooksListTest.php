@@ -11,11 +11,7 @@ use Illuminate\Foundation\Testing\DatabaseMigrations;
 class BooksListTest extends DuskTestCase
 {
     use DatabaseMigrations;
-    /**
-     * A Dusk test example.
-     *
-     * @return void
-     */
+
     public function test_a_user_can_see_the_books_list_and_go_to_the_details()
     {
         $book = $this->createBook([

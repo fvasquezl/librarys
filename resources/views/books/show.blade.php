@@ -29,6 +29,12 @@
                                         <i class="fa fa-file-pdf-o fa-3x" aria-hidden="true"></i>
                                         <a  href="{{asset('storage/'.$book->pdfbook)}}" target="_blank"> {{$book->title.'.pdf'}} </a>
                                     </div>
+                                    <br>
+                                    @if(auth()->user()->role = 'admin')
+                                        {!!Form::open(['method'=>'DELETE','route' =>['books.delete',$book],'style'=>'display:inline'])!!}
+                                        {!!Form::submit('Eliminar_libro',['class'=> 'btn btn-danger']) !!}
+                                        {!!Form::close() !!}
+                                    @endif
                                 @endif
                             </div>
                             @include('books.sidebar')

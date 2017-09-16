@@ -20,7 +20,7 @@
                                 <button type="submit" class="btn btn-primary">Ordenar</button>
                                 {!! Form::close() !!}
 
-                                @each('books.item', $books, 'book')
+                                @each('books.item ', $books, 'book')
 
                                 {{ $books->render() }}
                             </div>

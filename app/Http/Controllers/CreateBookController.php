@@ -6,6 +6,7 @@ use App\Book;
 use App\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Styde\Html\Facades\Alert;
 
 class CreateBookController extends Controller
 {
@@ -32,6 +33,7 @@ class CreateBookController extends Controller
            $book->pdfbook = $request->file('pdfbook')->store('pdfbooks','public');
            $book->save();
        }
+        Alert::success('El libro "'.$book->title.'" ha sido creado');
        return redirect($book->url);
     }
 }

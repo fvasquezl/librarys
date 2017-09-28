@@ -10,6 +10,10 @@ return [
             'title' => 'Agregar Libro',
             'route' => 'books.create',
         ],
+//        'category' =>[
+//            'title' => 'Categorias',
+//            'route' => 'categories.show'
+//        ],
     ],
     'filters' => [
         'all' => [

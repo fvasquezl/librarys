@@ -78,4 +78,5 @@ class BookDeleteTest extends DuskTestCase
             'slug' => $wrongBook->slug,
         ]);
     }
+
 }

@@ -23,19 +23,20 @@
                                 <p>{{$book->abstract}}</p>
                                 <hr>
 
-                                @if(auth()->check())
-                                    <h4>Documento:</h4>
-                                    <div>
-                                        <i class="fa fa-file-pdf-o fa-3x" aria-hidden="true"></i>
-                                        <a  href="{{asset('storage/'.$book->pdfbook)}}" target="_blank"> {{$book->title.'.pdf'}} </a>
-                                    </div>
+                                @can('admin')
+                                     @cannot('guest')
+                                        <h4>Documento:</h4>
+                                        <div>
+                                            <i class="fa fa-file-pdf-o fa-3x" aria-hidden="true"></i>
+                                            <a  href="{{asset('storage/'.$book->pdfbook)}}" target="_blank"> {{$book->title.'.pdf'}} </a>
+                                        </div>
+                                    @endcannot
                                     <br>
-                                    @if(auth()->user()->role = 'admin')
-                                        {!!Form::open(['method'=>'DELETE','route' =>['books.delete',$book],'style'=>'display:inline'])!!}
+                                        {!!Form::open(['method'=>'DELETE','route' =>['books.delete',$book],'style'=>'display:inline','onSubmit'=>"return confirm('Are you sure you want to submit this form?');"])!!}
                                         {!!Form::submit('Eliminar_libro',['class'=> 'btn btn-danger']) !!}
                                         {!!Form::close() !!}
-                                    @endif
-                                @endif
+                                    @endcan
+
                             </div>
                             @include('books.sidebar')
                         </div>

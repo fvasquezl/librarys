@@ -16,6 +16,7 @@
 
 <script>
     export default {
+        name: 'app-vote',
         mounted() {
             console.log('Component mounted.')
         }

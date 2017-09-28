@@ -14,7 +14,6 @@ class CreateBookController extends Controller
     public function create()
     {
         $categories = Category::query()->pluck('name','id')->toArray();
-
         return view('books.create',compact('categories'));
     }
 

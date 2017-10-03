@@ -17,19 +17,21 @@ class UserController extends Controller
         return view('users.index',compact('users'));
     }
 
-    public function show(User $user)
+    public function edit(User $user)
     {
-        return view('users.show',compact('user'));
+        return view('users.edit',compact('user'));
     }
-    public function update(User $user, Request $request)
+
+    public function update(Request $request)
     {
+
         $request->validate([
            'name' => 'required',
            'email' => 'required',
             'role' => 'required'
         ]);
-        $user->role = 'user';
-   //     $user->save($request->all());
+
+       $user->save($request->all());
         Alert::success('El usuario "'.$user->name.'" ha sido actualizado');
         return redirect(route('users.index'));
     }

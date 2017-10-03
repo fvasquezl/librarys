@@ -25,12 +25,12 @@ Route::get('admin/users',[
     'as' => 'users.index'
 ]);
 
-Route::get('admin/users/show/{user}',[
-    'uses' => 'UserController@show',
-    'as' => 'users.show'
+Route::get('admin/users/{user}/edit',[
+    'uses' => 'UserController@edit',
+    'as' => 'users.edit'
 ]);
 
-Route::post('admin/users/update/{user}',[
+Route::post('admin/users/update',[
     'uses' => 'UserController@update',
     'as' => 'users.update'
 ]);

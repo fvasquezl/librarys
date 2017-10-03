@@ -41,13 +41,13 @@
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
-                   <!--{!! Menu::make(trans('menu.main'), 'nav navbar-nav') !!}-->
-                    <ul class="nav navbar-nav">
-                        <li><a href="{{route('books.index')}}">Lista de Libros</a></li>
-                        @can('admin')
-                            <li><a href="{{route('books.create')}}">Agregar Libro</a></li>
-                        @endcan
-                    </ul>
+                   {!! Menu::make(trans('menu.main'), 'nav navbar-nav') !!}
+                    {{--<ul class="nav navbar-nav">--}}
+                        {{--<li><a href="{{route('books.index')}}">Lista de Libros</a></li>--}}
+                        {{--@can('admin')--}}
+                            {{--<li><a href="{{route('books.create')}}">Agregar Libro</a></li>--}}
+                        {{--@endcan--}}
+                    {{--</ul>--}}
 
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">

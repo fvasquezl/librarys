@@ -9,11 +9,21 @@ return [
         'create' => [
             'title' => 'Agregar Libro',
             'route' => 'books.create',
+            'roles' => 'admin'
         ],
-//        'category' =>[
-//            'title' => 'Categorias',
-//            'route' => 'categories.show'
-//        ],
+        'Administracion' =>[
+            'submenu' => [
+                'users'     => [
+                    'title' => 'Usuarios',
+                    'route' => 'users.index',
+                ],
+                'category'   => [
+                    'title' => 'Categorias',
+
+                ]
+            ],
+            'roles' => 'admin'
+        ],
     ],
     'filters' => [
         'all' => [

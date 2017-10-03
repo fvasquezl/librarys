@@ -22,17 +22,18 @@ class UserController extends Controller
         return view('users.edit',compact('user'));
     }
 
-    public function update(Request $request)
+    public function update(Request $request, User $user)
     {
-
         $request->validate([
-           'name' => 'required',
-           'email' => 'required',
             'role' => 'required'
         ]);
 
-       $user->save($request->all());
+        $user->role = $request->get('role');
+
+        $user->save();
+
         Alert::success('El usuario "'.$user->name.'" ha sido actualizado');
+
         return redirect(route('users.index'));
     }
 }

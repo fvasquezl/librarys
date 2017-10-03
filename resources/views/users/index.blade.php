@@ -6,7 +6,9 @@
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
                     <div class="panel-heading">Users</div>
+
                     <div class="panel-body">
+                        {!! Alert::render() !!}
                         {!! Form::open(['method' => 'get','route' =>['users.index'],'class' => 'form form-inline']) !!}
                         {!! Form::text('search',request('search'),['class' => 'form-control']) !!}
                         {!! Form::select('role',trans('options.user-role-search'),request('role'), ['class' => 'form-control']) !!}

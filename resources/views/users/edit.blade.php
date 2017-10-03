@@ -7,9 +7,9 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">Users</div>
                     <div class="panel-body">
-                        {!! Form::model($user, array('route' => array('users.update', $user->id))) !!}
-                        {!! Field::text('name',request('name')) !!}
-                        {!! Field::email('email',request('email')) !!}
+                        {!! Form::model($user, ['route' => ['users.update', $user], 'method' => 'PUT']) !!}
+                        {!! Field::text('name',request('name'),['readonly']) !!}
+                        {!! Field::email('email',request('email'),['readonly']) !!}
                         {!! Field::select('role',trans('options.user-role'),request('role'),['empty' => false]) !!}
                         {!! Form::submit('Submit', ['class' => 'btn btn-success']) !!}
                         {!! Form::close() !!}

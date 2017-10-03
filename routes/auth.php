@@ -30,7 +30,7 @@ Route::get('admin/users/{user}/edit',[
     'as' => 'users.edit'
 ]);
 
-Route::post('admin/users/update',[
+Route::put('admin/users/update/{user}',[
     'uses' => 'UserController@update',
     'as' => 'users.update'
 ]);

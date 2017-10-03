@@ -29,7 +29,7 @@
                                             <a  href="{{asset('storage/'.$book->pdfbook)}}" target="_blank"> {{$book->title.'.pdf'}} </a>
                                         </div>
                                     @endcannot
-                                
+
                                    @can('admin')
                                     <br>
                                         {!!Form::open(['method'=>'DELETE','route' =>['books.delete',$book],'style'=>'display:inline','onSubmit'=>"return confirm('Are you sure you want to submit this form?');"])!!}

@@ -9,7 +9,8 @@
 
                 <div class="panel-body">
                     @if (session('status'))
-                        <div class="alert alert-success">
+                        <div class="alert alert-success alert-dismissable">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
                             {{ session('status') }}
                         </div>
                     @endif

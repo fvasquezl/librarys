@@ -9,6 +9,12 @@
                         <h3> {{ $category && $category->exists ? 'Libros de '.$category->name : 'Libros' }}</h3>
                     </div>
                     <div class="panel-body">
+                        @if (session('status'))
+                            <div class="alert alert-success alert-dismissable">
+                                <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+                                {{ session('status') }}
+                            </div>
+                        @endif
                         <div class="row">
                             @include('books.sidebar')
                             <div class="col-md-10">
@@ -25,7 +31,6 @@
                                 {{ $books->render() }}
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>

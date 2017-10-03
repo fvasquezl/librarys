@@ -7,22 +7,12 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">Users</div>
                     <div class="panel-body">
-                        <table class="table table-condensed">
-                            <tr>
-                                <th>UserName</th>
-                                <th>Email</th>
-                                <th>Role</th>
-                            </tr>
-
-                            @foreach($users as $user)
-                                <tr>
-                                    <td>{{$user->name}}</td>
-                                    <td>{{$user->email}}</td>
-                                    <td>{{$user->role}}</td>
-                                </tr>
-                            @endforeach
-                        </table>
-                        {{$users->render()}}
+                        {!! Form::model($user, array('route' => array('users.update', $user))) !!}
+                        {!! Field::text('name',request('name')) !!}
+                        {!! Field::email('email',request('email')) !!}
+                        {!! Field::select('role',trans('options.user-role'),request('role'),['empty' => false]) !!}
+                        {!! Form::submit('Submit', ['class' => 'btn btn-success']) !!}
+                        {!! Form::close() !!}
                     </div>
                 </div>
             </div>

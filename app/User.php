@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Facades\DB;
 
 class User extends Authenticatable
 {
@@ -38,5 +39,21 @@ class User extends Authenticatable
         $book = new Book($array);
         $this->books()->save($book);
         return $book;
+    }
+
+    public function scopeFromSearch($query,string $search=null)
+    {
+        if ($search) {
+            $searchItems = array_map('strval', explode(' ', $search));
+            foreach ($searchItems as $item){
+                $query->orWhere(DB::raw("CONCAT(`name`,' ',`email`)"),'LIKE',"%$item%");
+            }
+        }
+    }
+    public function scopeFromRole($query, $role = null)
+    {
+        if ($role && $role != 'all') {
+            $query->where('role', $role);
+        }
     }
 }

@@ -19,8 +19,18 @@ Route::get('mis-books/{category?}', [
     'as' => 'books.mine',
 ]);
 
-Route::get('admin/users/list',[
-    'uses' => 'ShowUserController@show',
+
+Route::get('admin/users',[
+    'uses' => 'UserController@index',
+    'as' => 'users.index'
+]);
+
+Route::get('admin/users/show/{user}',[
+    'uses' => 'UserController@show',
     'as' => 'users.show'
 ]);
 
+Route::post('admin/users/update/{user}',[
+    'uses' => 'UserController@update',
+    'as' => 'users.update'
+]);

@@ -33,12 +33,36 @@ class ShowUsersTest extends DuskTestCase
 
         $this->browse(function (Browser $browser) use($firstUser,$lastUser,$defaultUser) {
             $browser->loginAs($defaultUser)
-                ->visit(route('users.show'))
+                ->visit(route('users.index'))
                 ->assertSee($firstUser->name)
                 ->assertDontSee($lastUser->name)
                 ->clickLink('2')
                 ->assertSee($lastUser->name)
                 ->assertDontSee($firstUser->name);
+        });
+    }
+
+    public function test_find_users_form()
+    {
+        //having
+        $defaultUser = $this->defaultUser([
+            'role' => 'admin'
+        ]);
+        factory(User::class,15)->create();
+
+        $userToSearch = factory(User::class)->create([
+            'name' => 'Sebastian Vasquez',
+            'created_at' => Carbon::now()
+        ]);
+        //when
+        $this->browse(function (Browser $browser) use($userToSearch,$defaultUser) {
+            $browser->loginAs($defaultUser)
+                ->visit(route('users.index'))
+                ->assertDontSee('Sebastian Vasquez')
+                ->type('search','Sebastian Vasquez')
+                ->press('Submit');
+        //then
+            $browser->assertSee('Sebastian Vasquez');
         });
     }
 }

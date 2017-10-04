@@ -19,7 +19,7 @@ return [
                 ],
                 'category'   => [
                     'title' => 'Categorias',
-
+                    'route' => 'categories.index',
                 ]
             ],
             'roles' => 'admin'

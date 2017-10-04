@@ -34,3 +34,30 @@ Route::put('admin/users/update/{user}',[
     'uses' => 'UserController@update',
     'as' => 'users.update'
 ]);
+
+Route::get('admin/categories',[
+    'uses' => 'CategoryController@index',
+    'as' => 'categories.index'
+]);
+
+
+Route::get('admin/categories/create',[
+    'uses' => 'CategoryController@create',
+    'as' => 'categories.create'
+]);
+
+Route::put('admin/categories/store',[
+    'uses' => 'CategoryController@store',
+    'as' => 'categories.store'
+]);
+
+Route::get('admin/categories/{category}/edit',[
+    'uses' => 'CategoryController@edit',
+    'as' => 'categories.edit'
+]);
+
+Route::put('admin/categories/update/{category}',[
+    'uses' => 'CategoryController@update',
+    'as' => 'categories.update'
+]);
+

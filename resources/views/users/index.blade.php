@@ -15,7 +15,7 @@
                         <button type="submit" class="btn btn-primary">Submit</button>
                         {!! Form::close() !!}
                         <br>
-                        <table class="table table-condensed">
+                        <table class="table table-condensed table-bordered">
                             <tr>
                                 <th>UserName</th>
                                 <th>Email</th>

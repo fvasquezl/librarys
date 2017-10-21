@@ -22,6 +22,7 @@
                                 </p>
                                 <p>{{$book->abstract}}</p>
                                 <hr>
+				@if(Auth::check())
                                      @cannot('guest')
                                         <h4>Documento:</h4>
                                         <div>
@@ -29,7 +30,7 @@
                                             <a  href="{{asset('storage/'.$book->pdfbook)}}" target="_blank"> {{$book->title.'.pdf'}} </a>
                                         </div>
                                     @endcannot
-
+				@endif
                                    @can('admin')
                                     <br>
                                         {!!Form::open(['method'=>'DELETE','route' =>['books.delete',$book],'style'=>'display:inline','onSubmit'=>"return confirm('Are you sure you want to submit this form?');"])!!}

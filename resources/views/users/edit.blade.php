@@ -7,8 +7,9 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">Categorias</div>
                     <div class="panel-body">
-                        {!! Form::model($category, ['route' => ['users.update', $category], 'method' => 'PUT']) !!}
+                        {!! Form::model($user, ['route' => ['users.update', $user], 'method' => 'PUT']) !!}
                         {!! Field::text('name',request('name'),['readonly']) !!}
+                        {!! Form::select('role',['admin'=>'admin','user'=>'user','guest'=>'guest'],$user->role,['class' => 'form-control']) !!}
                         {!! Form::submit('Submit', ['class' => 'btn btn-success']) !!}
                         {!! Form::close() !!}
                     </div>

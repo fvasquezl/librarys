@@ -23,7 +23,7 @@ class CreateBookController extends Controller
         $request->validate([
             'title' => 'required',
             'abstract' => 'required',
-            'pdfbook' => 'required|file|mimes:pdf|max:10000',
+            'pdfbook' => 'required|file|mimes:pdf|max:500000',
             'category_id' => 'required|exists:categories,id',
         ]);
 

@@ -6,7 +6,7 @@
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h3> {{ $category && $category->exists ? 'Libros de '.$category->name : 'Libros' }}</h3>
+                        <h3> {{ $category && $category->exists ? 'Documentos de '.$category->name : 'Documentos' }}</h3>
                     </div>
                     <div class="panel-body">
                         @if (session('status'))

@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
-                    <div class="panel-heading"><h3>Detalle de libro <i class="fa fa-book " aria-hidden="true"></i></h3></div>
+                    <div class="panel-heading"><h3>Detalle de documento <i class="fa fa-book " aria-hidden="true"></i></h3></div>
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-md-10">
@@ -22,7 +22,7 @@
                                 </p>
                                 <p>{{$book->abstract}}</p>
                                 <hr>
-				@if(Auth::check())
+				                @if(Auth::check())
                                      @cannot('guest')
                                         <h4>Documento:</h4>
                                         <div>
@@ -30,7 +30,7 @@
                                             <a  href="{{asset('storage/'.$book->pdfbook)}}" target="_blank"> {{$book->title.'.pdf'}} </a>
                                         </div>
                                     @endcannot
-				@endif
+				                @endif
                                    @can('admin')
                                     <br>
                                         {!!Form::open(['method'=>'DELETE','route' =>['books.delete',$book],'style'=>'display:inline','onSubmit'=>"return confirm('Are you sure you want to submit this form?');"])!!}

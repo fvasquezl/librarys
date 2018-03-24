@@ -12,10 +12,19 @@ class AdminTableSeeder extends Seeder
     public function run()
     {
         factory(\App\User::class)->create([
-            'name'=> 'fvasquez',
-            'email' => 'fvasquez@local.com',
+            'name'=> 'admin',
+            'email' => 'admin@local.com',
             'password' => bcrypt('123456'),
-            'role'=>'admin'
+            'position'=>'Gerente General',
+            'area_id' => 1
+        ]);
+
+        factory(\App\User::class)->create([
+            'name'=> 'employee',
+            'email' => 'employee@local.com',
+            'password' => bcrypt('123456'),
+            'position'=>'Gerente de Operaciones',
+            'area_id' => 2
         ]);
     }
 }

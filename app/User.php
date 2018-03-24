@@ -33,6 +33,11 @@ class User extends Authenticatable
         return $this->hasMany(Book::class);
     }
 
+    public function area()
+    {
+        return $this->belongsTo(Area::class);
+    }
+
 
     public function createBook(array $array)
     {
@@ -50,10 +55,19 @@ class User extends Authenticatable
             }
         }
     }
-    public function scopeFromRole($query, $role = null)
+
+    public function hasRoles($role)
     {
-        if ($role && $role != 'all') {
-            $query->where('role', $role);
+        $roles = Area::pluck('accessLevel')->unique();
+
+        if ($this->hierarchy[$this->area->accessLevel] < $this->hierarchy[$role]){
+            abort(404);
         }
     }
+//    public function scopeFromRole($query, $role = null)
+//    {
+//        if ($role && $role != 'all') {
+//            $query->where('role', $role);
+//        }
+//    }
 }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Area;
 use Illuminate\Database\Seeder;
 
 class UsersTableSeeder extends Seeder
@@ -11,8 +12,13 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(\App\User::class,30)->create([
-            'role'=>'user'
-        ]);
+        $areas = Area::select('id')->get();
+        for ($i=0;$i<30;$i++){
+            factory(\App\User::class,30)->create([
+                'area_id' => $areas->random()->id
+            ]);
+        }
+
+
     }
 }

@@ -19,7 +19,6 @@ Route::get('mis-books/{category?}', [
     'as' => 'books.mine',
 ]);
 
-
 Route::get('admin/users',[
     'uses' => 'UserController@index',
     'as' => 'users.index'

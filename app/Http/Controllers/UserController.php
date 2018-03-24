@@ -12,7 +12,7 @@ class UserController extends Controller
     {
         $users = User::query()
                 ->fromSearch($request->get('search'))
-                ->fromRole($request->get('role'))
+              //  ->fromRole($request->get('role'))
                 ->paginate();
         return view('users.index',compact('users'));
     }

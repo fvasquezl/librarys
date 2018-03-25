@@ -1,9 +1,9 @@
 <?php
 
-use App\Roles;
+use App\Access;
 use Illuminate\Database\Seeder;
 
-class RoleTableSeeder extends Seeder
+class AccessTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,23 +12,23 @@ class RoleTableSeeder extends Seeder
      */
     public function run()
     {
-        Roles::query()->forceCreate([
+        Access::query()->forceCreate([
             'name' => 'level1',
             'display_name' => 'Access Level 1',
         ]);
-        Roles::query()->forceCreate([
+        Access::query()->forceCreate([
             'name' => 'level2',
             'display_name' => 'Access Level 2',
         ]);
-        Roles::query()->forceCreate([
+        Access::query()->forceCreate([
             'name' => 'level3',
             'display_name' => 'Access Level 3',
         ]);
-        Roles::query()->forceCreate([
+        Access::query()->forceCreate([
             'name' => 'level4',
             'display_name' => 'Access Level 4',
         ]);
-        Roles::query()->forceCreate([
+        Access::query()->forceCreate([
             'name' => 'level5',
             'display_name' => 'Access Level 5',
         ]);

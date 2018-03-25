@@ -5,9 +5,11 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 
-class Roles extends Model
+class Access extends Model
 {
     protected $fillable=['name','display_name'];
+   
+    protected $table='access_level';
 
     public function getRouteKeyName()
     {

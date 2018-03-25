@@ -8,7 +8,7 @@ use Illuminate\Support\Str;
 class Area extends Model
 {
     protected $fillable = [
-        'code', 'name', 'accessLevel','parent_id'
+        'code', 'name','parent_id'
     ];
 
     public function getRouteKeyName()

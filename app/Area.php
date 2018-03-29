@@ -8,7 +8,7 @@ use Illuminate\Support\Str;
 class Area extends Model
 {
     protected $fillable = [
-        'code', 'name','parent_id'
+        'code', 'name','access_level_id','parent_id'
     ];
 
     public function getRouteKeyName()
@@ -25,6 +25,15 @@ class Area extends Model
     {
         $this->attributes['name']=$name;
         $this->attributes['url'] = Str::slug($name);
+    }
+
+    public function access()
+    {
+        return $this->belongsTo(Access::class,'access_level_id');
+    }
+
+    public function parent(){
+        return $this->belongsTo(Area::class , 'parent_id');
     }
 
 }

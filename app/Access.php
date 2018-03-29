@@ -16,4 +16,9 @@ class Access extends Model
         return 'name';
     }
 
+    public function area()
+    {
+        return $this->hasOne(Area::class);
+    }
+
 }

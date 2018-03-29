@@ -60,3 +60,5 @@ Route::put('admin/categories/update/{category}',[
     'as' => 'categories.update'
 ]);
 
+
+

@@ -56,18 +56,15 @@ class User extends Authenticatable
         }
     }
 
-    public function hasRoles($role)
+    public function isAdmin()
     {
-        $roles = Area::pluck('accessLevel')->unique();
-
-        if ($this->hierarchy[$this->area->accessLevel] < $this->hierarchy[$role]){
+        if (!$this->area->access->name = 'level1'){
             abort(404);
         }
+        return true;
     }
-//    public function scopeFromRole($query, $role = null)
-//    {
-//        if ($role && $role != 'all') {
-//            $query->where('role', $role);
-//        }
-//    }
+
+    public function hasRoles($level){
+      return $this->area->access->name = $level;
+    }
 }

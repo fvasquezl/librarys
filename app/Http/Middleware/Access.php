@@ -4,15 +4,15 @@ namespace App\Http\Middleware;
 
 use Closure;
 
-class Role
+class Access
 {
 
     protected $hierarchy = [
-        'level1' => 1,
-        'level2' => 2,
-        'level3' => 3,
-        'level4' => 4,
-        'level5' => 5,
+        'nivel1' => 1,
+        'nivel2' => 2,
+        'nivel3' => 3,
+        'nivel4' => 4,
+        'nivel5' => 5,
     ];
 
     /**
@@ -22,10 +22,10 @@ class Role
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next, $role)
+    public function handle($request, Closure $next, $level)
     {
         $user = auth()->user();
-        if ($this->hierarchy[$user->area->accessLevel] < $this->hierarchy[$role]){
+        if ($this->hierarchy[$user->area->access->name] < $this->hierarchy[$level]){
             abort(404);
         }
         return $next($request);

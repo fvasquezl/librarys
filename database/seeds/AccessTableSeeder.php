@@ -13,24 +13,24 @@ class AccessTableSeeder extends Seeder
     public function run()
     {
         Access::query()->forceCreate([
-            'name' => 'level1',
-            'display_name' => 'Access Level 1',
+            'name' => 'nivel1',
+            'display_name' => 'Nivel de Acceso 1',
         ]);
         Access::query()->forceCreate([
-            'name' => 'level2',
-            'display_name' => 'Access Level 2',
+            'name' => 'nivel2',
+            'display_name' => 'Nivel de Acceso 2',
         ]);
         Access::query()->forceCreate([
-            'name' => 'level3',
-            'display_name' => 'Access Level 3',
+            'name' => 'nivel3',
+            'display_name' => 'Nivel de Acceso 3',
         ]);
         Access::query()->forceCreate([
-            'name' => 'level4',
-            'display_name' => 'Access Level 4',
+            'name' => 'nivel4',
+            'display_name' => 'Nivel de Acceso 4',
         ]);
         Access::query()->forceCreate([
-            'name' => 'level5',
-            'display_name' => 'Access Level 5',
+            'name' => 'nivel5',
+            'display_name' => 'Nivel de Acceso 5',
         ]);
     }
 }
